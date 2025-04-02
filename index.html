@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 基本元数据设置 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO优化相关标签 -->
     <title>Classic Pixel Adventure | Immersive Online Gaming Experience</title>
     <meta name="description" content="Embark on an epic journey through a classic pixel adventure with challenging levels and nostalgic gameplay.">
     <link rel="canonical" href="https://classicpixeladventure.com">
+    
+    <!-- 加载Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 自定义Tailwind配置，添加苹果风格配色 -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         apple: {
-                            blue: '#007AFF',
-                            gray: '#F5F5F7',
-                            darkgray: '#86868B',
-                            black: '#1D1D1F',
-                            green: '#34C759',
+                            blue: '#007AFF',    // 苹果标志性蓝色
+                            gray: '#F5F5F7',    // 苹果浅灰色背景
+                            darkgray: '#86868B', // 苹果深灰色文本
+                            black: '#1D1D1F',    // 苹果近黑色
+                            green: '#34C759',    // 苹果绿色
                         }
                     }
                 }
             }
         }
     </script>
+    
+    <!-- 自定义CSS样式 -->
     <style>
+        /* 设置全局字体为苹果系统字体 */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+        
+        /* 游戏容器样式，使用相对定位实现响应式高度 */
         .game-container {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 850px; /* 增加高度从600px到650px */
+            max-width: 2000px; /* 增加最大宽度从1000px到1200px */
+            margin: 0 auto; /* 居中显示 */
             overflow: hidden;
         }
+        
+        /* iframe定位和大小设置 */
         .game-container iframe {
             position: absolute;
             top: 0;
@@ -46,6 +61,7 @@
     </style>
 </head>
 <body class="bg-apple-gray text-apple-black">
+    <!-- 页面头部，包含游戏标题和简介 -->
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-6 md:py-8">
             <h1 class="text-3xl md:text-4xl font-bold text-center text-apple-blue">Classic Pixel Adventure</h1>
@@ -53,25 +69,31 @@
         </div>
     </header>
 
+    <!-- 主内容区域 -->
     <main class="container mx-auto px-4 py-8">
+        <!-- 游戏区域部分 -->
         <section class="mb-12">
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-4 md:p-6">
                     <h2 class="text-2xl font-bold mb-4 text-apple-blue">Play Now</h2>
-                    <div class="game-container">
-                        <iframe src="https://html-classic.itch.zone/html/13171930/Web/index.html" title="Classic Pixel Adventure Game" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" loading="lazy"></iframe>
+                    <!-- 游戏iframe容器 -->
+                    <div class="game-container" id="gameContainer">
+                        <!-- 游戏iframe，添加sandbox属性增强安全性，允许全屏 -->
+                        <iframe src="https://html-classic.itch.zone/html/13171930/Web/index.html" title="Classic Pixel Adventure Game" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" allowfullscreen="true" loading="lazy"></iframe>
                     </div>
                     <p class="mt-4 text-sm text-apple-darkgray">Note: For the best gaming experience, use Chrome or Firefox browsers</p>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto mb-12">
+        <!-- 游戏概述部分 -->
+        <section class="max-w-5xl mx-auto mb-12">
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-4 md:p-6">
                     <h2 class="text-2xl font-bold mb-4 text-apple-blue">Game Overview</h2>
                     <p class="mb-4">Classic Pixel Adventure is a nostalgic journey through beautifully crafted pixel environments. Navigate your character through various challenging levels, collect coins, defeat enemies, and discover hidden secrets along the way.</p>
                     
+                    <!-- 游戏特性部分 -->
                     <h2 class="text-2xl font-bold mb-4 mt-8 text-apple-blue">Game Features</h2>
                     <ul class="list-disc pl-5 space-y-2">
                         <li>Multiple challenging levels with increasing difficulty</li>
@@ -84,11 +106,14 @@
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto mb-12">
+        <!-- 游戏控制说明部分 -->
+        <section class="max-w-5xl mx-auto mb-12">
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-4 md:p-6">
                     <h2 class="text-2xl font-bold mb-4 text-apple-blue">How to Play</h2>
+                    <!-- 使用网格布局，在移动端堆叠，桌面端并排显示 -->
                     <div class="grid md:grid-cols-2 gap-6">
+                        <!-- 桌面端控制说明 -->
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Desktop Controls</h3>
                             <ul class="list-disc pl-5 space-y-1">
@@ -98,6 +123,7 @@
                                 <li>P to pause the game</li>
                             </ul>
                         </div>
+                        <!-- 移动端控制说明 -->
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Mobile Controls</h3>
                             <ul class="list-disc pl-5 space-y-1">
@@ -113,10 +139,13 @@
         </section>
     </main>
 
+    <!-- 页脚区域 -->
     <footer class="bg-apple-black text-white py-8">
         <div class="container mx-auto px-4">
+            <!-- 在移动端垂直排列，桌面端水平排列的页脚内容 -->
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="mb-4 md:mb-0">&copy; 2024 Classic Pixel Adventure. All rights reserved.</p>
+                <!-- 页脚链接 -->
                 <div class="flex space-x-4">
                     <a href="#" class="hover:text-apple-blue transition duration-300">Privacy Policy</a>
                     <a href="#" class="hover:text-apple-blue transition duration-300">Terms of Service</a>
